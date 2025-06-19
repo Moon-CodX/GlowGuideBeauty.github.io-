@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlamGuide | Haircare Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --teal: #2DD4BF;
+            --navy: #1E3A8A;
+            --gold: #F9C74F;
+            --light: #F8FAFC;
+            --dark: #2F2E41;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #0D9488;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(45, 212, 191, 0.3);
+        }
+
+        /* ===== HAIRCARE HERO ===== */
+        .haircare-hero {
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+                        url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhhaXIlMjBjYXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=60');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .haircare-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+        
+        .haircare-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* ===== HAIR TYPE GUIDE ===== */
+        .hair-type-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .hair-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .hair-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .hair-card h3 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hair-card h3 i {
+            margin-right: 10px;
+            color: var(--teal);
+        }
+        
+        .hair-card ul {
+            list-style-position: inside;
+            margin-top: 15px;
+        }
+        
+        .hair-card li {
+            margin-bottom: 8px;
+        }
+        
+        /* ===== PRODUCT REVIEWS ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-rating {
+            color: var(--gold);
+            margin: 10px 0;
+        }
+        
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+        
+        .product-desc {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        /* ===== TREATMENT ROUTINES ===== */
+        .routine-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .routine-header {
+            background: linear-gradient(to right, var(--teal), var(--navy));
+            color: white;
+            padding: 15px 25px;
+            font-weight: 600;
+        }
+        
+        .routine-steps {
+            padding: 25px;
+        }
+        
+        .routine-step {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .product-recommendation {
+            background: #F8FAFC;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 3px solid var(--teal);
+        }
+        
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 768px) {
+            .haircare-hero {
+                height: 400px;
+            }
+            
+            .haircare-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .haircare-hero {
+                height: 350px;
+            }
+            
+            .haircare-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hair-type-guide {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Haircare Hero Section -->
+    <section class="haircare-hero">
+        <div class="hero-content">
+            <h1>Healthy Hair Starts Here</h1>
+            <p>Discover science-backed routines and honest product reviews for your hair type</p>
+            <a href="#hair-types" class="btn">Find Your Routine</a>
+        </div>
+    </section>
+
+    <!-- Hair Type Guide -->
+    <section class="container" id="hair-types">
+        <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem;">Find Your Hair Type</h2>
+        
+        <div class="hair-type-guide">
+            <!-- Curly Hair -->
+            <div class="hair-card">
+                <h3><i class="fas fa-water"></i> Curly Hair</h3>
+                <p>Define curls and reduce frizz with these techniques:</p>
+                <ul>
+                    <li>Use sulfate-free shampoos</li>
+                    <li>Apply products to soaking wet hair</li>
+                    <li>Diffuse instead of towel drying</li>
+                    <li>Sleep on silk pillowcases</li>
+                </ul>
+            </div>
+            
+            <!-- Fine Hair -->
+            <div class="hair-card">
+                <h3><i class="fas fa-feather-alt"></i> Fine Hair</h3>
+                <p>Add volume without weighing hair down:</p>
+                <ul>
+                    <li>Lightweight mousses</li>
+                    <li>Root-lifting sprays</li>
+                    <li>Dry shampoo at roots</li>
+                    <li>Avoid heavy oils/butters</li>
+                </ul>
+            </div>
+            
+            <!-- Damaged Hair -->
+            <div class="hair-card">
+                <h3><i class="fas fa-fire"></i> Damaged Hair</h3>
+                <p>Repair chemically treated or heat-damaged hair:</p>
+                <ul>
+                    <li>Protein treatments weekly</li>
+                    <li>Bond-building products</li>
+                    <li>Heat protectant always</li>
+                    <li>Trim every 6-8 weeks</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Reviews -->
+    <section class="container" style="background: #F8FAFC; padding: 60px 20px; border-radius: 10px;">
+        <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem;">Top-Rated Hair Products</h2>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="product-badge">Best Seller</span>
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/0310-hairbonding-00-67cf33165bbff.jpg?crop=0.9998222222222223xw:1xh;center,top&resize=1200:*" alt="Olaplex">
+                </div>
+                <div class="product-info">
+                    <div class="product-rating">★★★★★</div>
+                    <h3>Olaplex No. 3</h3>
+                    <p class="product-desc">Hair perfector that repairs broken bonds from chemical/heat damage.</p>
+                    <div class="product-price">$28.00</div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmi9ZeOuMk7oOIbNrStcT3WzHycWWIz9-QAQ&s" alt="Dyson">
+                </div>
+                <div class="product-info">
+                    <div class="product-rating">★★★★☆</div>
+                    <h3>Dyson Supersonic</h3>
+                    <p class="product-desc">Hair dryer that minimizes heat damage while speeding up drying time.</p>
+                    <div class="product-price">$429.00</div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="product-badge">Editors' Choice</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNsLhi2uzgJrBkutLKexIUGzYjDnpnIENuVA&s" alt="Ouai">
+                </div>
+                <div class="product-info">
+                    <div class="product-rating">★★★★★</div>
+                    <h3>OUAI Detox Shampoo</h3>
+                    <p class="product-desc">Clarifying shampoo that removes buildup without stripping moisture.</p>
+                    <div class="product-price">$32.00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatment Routines -->
+    <section class="container">
+        <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem;">Specialty Treatment Routines</h2>
+        
+        <!-- Hair Mask Routine -->
+        <div class="routine-card">
+            <div class="routine-header">
+                <i class="fas fa-spa"></i> Deep Conditioning Treatment (Weekly)
+            </div>
+            <div class="routine-steps">
+                <div class="routine-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Clarify</h4>
+                        <p>Start with clean hair using a sulfate-free shampoo to remove product buildup.</p>
+                        <div class="product-recommendation">
+                            <strong>Recommended:</strong> Neutrogena Anti-Residue Shampoo ($5.99)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="routine-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Apply Mask</h4>
+                        <p>Section hair and apply treatment from mid-lengths to ends. Avoid roots if you have oily scalp.</p>
+                        <div class="product-recommendation">
+                            <strong>For Dry Hair:</strong> Briogeo Don't Despair, Repair! ($38)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="routine-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Heat Activation</h4>
+                        <p>Cover with shower cap and apply low heat for 15-20 minutes using a blow dryer or steam cap.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scalp Care Routine -->
+        <div class="routine-card">
+            <div class="routine-header">
+                <i class="fas fa-leaf"></i> Scalp Treatment (Bi-Weekly)
+            </div>
+            <div class="routine-steps">
+                <div class="routine-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Exfoliate</h4>
+                        <p>Use a scalp scrub or brush to remove flakes and improve circulation.</p>
+                    </div>
+                </div>
+                
+                <div class="routine-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Treatment</h4>
+                        <p>Apply medicated serum or oil blend to address specific concerns (dandruff, dryness, etc.)</p>
+                        <div class="product-recommendation">
+                            <strong>For Dandruff:</strong> The Inkey List Salicylic Acid Treatment ($12.99)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Product filtering functionality would go here
+        // Example:
+        // const filterButtons = document.querySelectorAll('.filter-btn');
+        // filterButtons.forEach(btn => btn.addEventListener('click', filterProducts));
+    </script>
+</body>
+</html>

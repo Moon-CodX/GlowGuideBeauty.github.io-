@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <style>
+      /* Base Styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      /* About Section */
+      .about-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 60px;
+      }
+
+      .about-image {
+        flex: 1;
+        min-width: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.03);
+      }
+
+      .about-content {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .section-subtitle {
+        font-size: 1.1rem;
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: #222;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .about-text {
+        margin-bottom: 30px;
+        color: #555;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: #d14d8b;
+        margin-bottom: 20px;
+      }
+
+      .feature-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .feature-text {
+        color: #666;
+      }
+
+      /* Team Section */
+      .team-section {
+        margin-top: 80px;
+        text-align: center;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .team-member {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .team-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        border: 5px solid #f3f3f3;
+      }
+
+      .team-name {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .team-position {
+        color: #d14d8b;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .team-bio {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .about-section {
+          flex-direction: column;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Main About Section -->
+      <section class="about-section">
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e"
+            alt="Our Team"
+          />
+        </div>
+        <div class="about-content">
+          <p class="section-subtitle">About Our Company</p>
+          <h2 class="section-title">
+            We're Passionate About Beauty & Wellness
+          </h2>
+          <p class="about-text">
+            Founded in 2015, BeautyEssence started as a small boutique with a
+            big dream: to provide high-quality, natural beauty products that
+            actually work. Today, we're proud to be a trusted name in the beauty
+            industry, serving thousands of happy customers worldwide.
+          </p>
+          <p class="about-text">
+            Our mission is simple: to help people feel confident in their own
+            skin. We carefully curate and test every product we sell, ensuring
+            they meet our strict standards for quality, effectiveness, and
+            ethical sourcing.
+          </p>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="feature-title">Natural Ingredients</h3>
+            <p class="feature-text">
+              We use only the purest natural ingredients, free from harmful
+              chemicals and toxins.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3 class="feature-title">Cruelty Free</h3>
+            <p class="feature-text">
+              All our products are cruelty-free and never tested on animals.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3 class="feature-title">Quality Guarantee</h3>
+            <p class="feature-text">
+              Not satisfied? We offer a 30-day money back guarantee on all
+              purchases.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3 class="feature-title">Eco-Friendly</h3>
+            <p class="feature-text">
+              Sustainable packaging and environmentally conscious business
+              practices.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="team-section">
+        <p class="section-subtitle">Meet Our Experts</p>
+        <h2 class="section-title">The Faces Behind BeautyEssence</h2>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              alt="Sarah Miller"
+              class="team-photo"
+            />
+            <h3 class="team-name">Sarah Miller</h3>
+            <p class="team-position">Founder & CEO</p>
+            <p class="team-bio">
+              With over 15 years in the beauty industry, Sarah's vision drives
+              our company forward.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <img
+              src="https://randomuser.me/api/portraits/women/33.jpg"
+              alt="Jessica Chen"
+              class="team-photo"
+            />
+            <h3 class="team-name">Jessica Chen</h3>
+            <p class="team-position">Head Chemist</p>
+            <p class="team-bio">
+              Our product formulation expert with a PhD in Cosmetic Science.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="David Wilson"
+              class="team-photo"
+            />
+            <h3 class="team-name">David Wilson</h3>
+            <p class="team-position">Customer Experience</p>
+            <p class="team-bio">
+              Ensures every customer receives exceptional service and support.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

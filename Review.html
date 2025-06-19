@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Product Reviews</title>
+    <style>
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f3f3;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .review-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .review-header h2 {
+            font-size: 2.5rem;
+            color: #d14d8b;
+            margin-bottom: 15px;
+        }
+        
+        .review-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Review Grid */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Review Card */
+        .review-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .review-content {
+            padding: 25px;
+        }
+        
+        .product-name {
+            font-size: 1.4rem;
+            color: #d14d8b;
+            margin-bottom: 10px;
+        }
+        
+        .product-brand {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .review-text {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .reviewer-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .review-rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-right: 5px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="review-header">
+            <h2>Beauty Product Reviews</h2>
+            <p>Honest reviews from real customers. Discover what works best for your skin type and beauty needs.</p>
+        </section>
+        
+        <div class="review-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Vitamin C Serum" class="product-image">
+                <div class="review-content">
+                    <h3 class="product-name">Glow Boost Vitamin C Serum</h3>
+                    <p class="product-brand">by RadiantSkin</p>
+                    <p class="review-text">This serum has completely transformed my skin! After just 2 weeks of use, my dark spots have faded significantly and my complexion is much brighter. It absorbs quickly without leaving any sticky residue.</p>
+                    <div class="reviewer-info">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Reviewer" class="reviewer-avatar">
+                        <div>
+                            <p class="reviewer-name">Sarah Johnson</p>
+                            <div class="review-rating">
+                                <span class="stars">★★★★★</span> 5.0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="review-card">
+                <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883" alt="Hydrating Moisturizer" class="product-image">
+                <div class="review-content">
+                    <h3 class="product-name">Deep Hydration Moisturizer</h3>
+                    <p class="product-brand">by AquaGlow</p>
+                    <p class="review-text">As someone with extremely dry skin, this moisturizer has been a game-changer. It's rich but not greasy, and keeps my skin hydrated all day. The subtle lavender scent is very relaxing.</p>
+                    <div class="reviewer-info">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Reviewer" class="reviewer-avatar">
+                        <div>
+                            <p class="reviewer-name">Emily Chen</p>
+                            <div class="review-rating">
+                                <span class="stars">★★★★☆</span> 4.5
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="review-card">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c" alt="Clay Mask" class="product-image">
+                <div class="review-content">
+                    <h3 class="product-name">Detoxifying Clay Mask</h3>
+                    <p class="product-brand">by PureEarth</p>
+                    <p class="review-text">This mask really draws out impurities without overdrying. My pores look smaller after each use. I use it 2-3 times a week and my acne breakouts have reduced dramatically.</p>
+                    <div class="reviewer-info">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Reviewer" class="reviewer-avatar">
+                        <div>
+                            <p class="reviewer-name">Michael Rodriguez</p>
+                            <div class="review-rating">
+                                <span class="stars">★★★★★</span> 5.0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

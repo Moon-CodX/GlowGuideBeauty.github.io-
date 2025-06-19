@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Trends 2023</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #ff6b9e;
+            --secondary: #9d4edd;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .trend-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trend-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .trend-header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .trend-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .trend-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Trend Categories */
+        .trend-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Trend Grid */
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .trend-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .trend-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .trend-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .trend-content {
+            padding: 25px;
+        }
+        
+        .trend-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .trend-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .trend-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .trend-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Featured Trend */
+        .featured-trend {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .featured-content {
+            padding: 40px;
+        }
+        
+        .featured-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .featured-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .featured-description {
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,107,158,0.3);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 60px;
+        }
+        
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background: #343a40;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .featured-trend {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .trend-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .trend-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 15px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="trend-header">
+        <div class="container trend-header-content">
+            <h1>Beauty Trends 2025</h1>
+            <p>Discover the hottest beauty trends taking the world by storm this year. From skincare routines to makeup looks, we've got you covered.</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Trend Categories -->
+        <div class="trend-categories">
+            <button class="category-btn active">All Trends</button>
+            <button class="category-btn">Skincare</button>
+            <button class="category-btn">Makeup</button>
+            <button class="category-btn">Hair</button>
+            <button class="category-btn">Wellness</button>
+        </div>
+        
+        <!-- Featured Trend -->
+        <div class="featured-trend">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c" alt="Skinimalism Trend" class="featured-image">
+            <div class="featured-content">
+                <span class="featured-tag">Trending Now</span>
+                <h2 class="featured-title">Skinimalism: The Less-Is-More Approach</h2>
+                <p class="featured-description">
+                    The skinimalism movement continues to dominate in 2025, with more people embracing their natural skin texture and reducing their product routines. This trend focuses on quality over quantity, with multi-tasking products that enhance rather than cover up.
+                </p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </div>
+        
+        <!-- Trend Grid -->
+        <div class="trend-grid">
+            <!-- Trend 1 -->
+            <div class="trend-card">
+                <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883" alt="Blue Beauty" class="trend-image">
+                <div class="trend-content">
+                    <span class="trend-tag">Skincare</span>
+                    <h3 class="trend-title">Blue Beauty Takes Over</h3>
+                    <p class="trend-description">
+                        The next evolution of clean beauty focuses on water conservation and ocean-safe formulas. Brands are innovating with waterless products and sustainable packaging.
+                    </p>
+                    <div class="trend-meta">
+                        <span><i class="far fa-calendar-alt"></i> March 15, 2025</span>
+                        <span><i class="far fa-comment"></i> 24 Comments</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 2 -->
+            <div class="trend-card">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e" alt="Hair Care" class="trend-image">
+                <div class="trend-content">
+                    <span class="trend-tag">Hair</span>
+                    <h3 class="trend-title">The Return of 90s Hair</h3>
+                    <p class="trend-description">
+                        Scrunchies, claw clips, and wet-look gels are making a major comeback. This nostalgic trend is all about effortless, undone styles with modern products.
+                    </p>
+                    <div class="trend-meta">
+                        <span><i class="far fa-calendar-alt"></i> April 2, 2025</span>
+                        <span><i class="far fa-comment"></i> 42 Comments</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 3 -->
+            <div class="trend-card">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" alt="Makeup" class="trend-image">
+                <div class="trend-content">
+                    <span class="trend-tag">Makeup</span>
+                    <h3 class="trend-title">Graphic Eyeliner Revolution</h3>
+                    <p class="trend-description">
+                        Bold, artistic eyeliner looks are everywhere this season. From floating creases to negative space designs, it's all about creative expression.
+                    </p>
+                    <div class="trend-meta">
+                        <span><i class="far fa-calendar-alt"></i> February 28, 2023</span>
+                        <span><i class="far fa-comment"></i> 36 Comments</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 4 -->
+            <div class="trend-card">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef" alt="Wellness" class="trend-image">
+                <div class="trend-content">
+                    <span class="trend-tag">Wellness</span>
+                    <h3 class="trend-title">Adaptogens in Beauty</h3>
+                    <p class="trend-description">
+                        Stress-relieving adaptogens like ashwagandha and reishi are being infused into skincare for their purported benefits in combating inflammation and signs of aging.
+                    </p>
+                    <div class="trend-meta">
+                        <span><i class="far fa-calendar-alt"></i> January 15, 2025</span>
+                        <span><i class="far fa-comment"></i> 18 Comments</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 5 -->
+            <div class="trend-card">
+                <img src="https://images.unsplash.com/photo-1596704017256-9c8a0a0a7879" alt="Nails" class="trend-image">
+                <div class="trend-content">
+                    <span class="trend-tag">Nails</span>
+                    <h3 class="trend-title">Micro-French Manicures</h3>
+                    <p class="trend-description">
+                        The classic French manicure gets a modern update with thinner, more delicate tips and creative color combinations for a subtle yet stylish look.
+                    </p>
+                    <div class="trend-meta">
+                        <span><i class="far fa-calendar-alt"></i> March 22, 2024</span>
+                        <span><i class="far fa-comment"></i> 29 Comments</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 6 -->
+            <div class="trend-card">
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" alt="Fragrance" class="trend-image">
+                <div class="trend-content">
+                    <span class="trend-tag">Fragrance</span>
+                    <h3 class="trend-title">Skin Scents & Pheromones</h3>
+                    <p class="trend-description">
+                        The latest fragrance trend is all about subtle, your-skin-but-better scents that blend with your natural chemistry for a personalized aroma.
+                    </p>
+                    <div class="trend-meta">
+                        <span><i class="far fa-calendar-alt"></i> April 5, 2025</span>
+                        <span><i class="far fa-comment"></i> 31 Comments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <h2>Stay Updated on Beauty Trends</h2>
+            <p>Subscribe to our newsletter to receive weekly updates on the latest beauty trends, product launches, and expert tips.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

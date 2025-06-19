@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlamLab | Skincare Hub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* ===== SKINCARE-SPECIFIC STYLES ===== */
+      :root {
+        --teal: #2dd4bf;
+        --pink: #ff85a2;
+        --navy: #1e3a8a;
+        --light: #f8fafc;
+        --dark: #1f2937;
+      }
+
+      .skincare-hero {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c2tpbmNhcmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=60");
+        background-size: cover;
+        background-position: center;
+        padding: 100px 20px;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .skincare-hero h1 {
+        font-size: 3rem;
+        color: var(--navy);
+        margin-bottom: 20px;
+      }
+
+      .skincare-hero p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        font-size: 1.1rem;
+      }
+
+      .skin-type-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 40px 0;
+      }
+
+      .skin-type-btn {
+        padding: 12px 25px;
+        border-radius: 30px;
+        background: white;
+        border: 2px solid var(--teal);
+        color: var(--teal);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .skin-type-btn.active,
+      .skin-type-btn:hover {
+        background: var(--teal);
+        color: white;
+      }
+
+      /* Skincare Routine Cards */
+      .routine-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .routine-header {
+        background: linear-gradient(to right, var(--teal), var(--navy));
+        color: white;
+        padding: 15px 25px;
+        font-weight: 600;
+      }
+
+      .routine-steps {
+        padding: 25px;
+      }
+
+      .routine-step {
+        display: flex;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #eee;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        background: var(--teal);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      .step-content h4 {
+        margin-bottom: 8px;
+        color: var(--navy);
+      }
+
+      .product-recommendation {
+        background: #f8fafc;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+        border-left: 3px solid var(--pink);
+      }
+
+      /* Ingredient Glossary */
+      .ingredient-glossary {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin: 50px 0;
+      }
+
+      .ingredient-item {
+        margin-bottom: 25px;
+      }
+
+      .ingredient-name {
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+      }
+
+      .ingredient-rating {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        padding: 3px 8px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-left: 10px;
+        font-weight: 600;
+      }
+
+      .rating-good {
+        background: #d1fae5;
+        color: #065f46;
+      }
+
+      .rating-average {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .rating-poor {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      /* ===== RESPONSIVE STYLES ===== */
+      @media (max-width: 768px) {
+        .skincare-hero {
+          padding: 60px 20px;
+        }
+
+        .skincare-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .skin-type-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Skincare Hero Section -->
+    <section class="skincare-hero">
+      <div class="container">
+        <h1>Your Science-Backed Skincare Hub</h1>
+        <p>
+          Discover personalized routines, ingredient decoders, and
+          dermatologist-approved product reviews
+        </p>
+        <div class="skin-type-buttons">
+          <button class="skin-type-btn active">All Skin Types</button>
+          <button class="skin-type-btn">Dry Skin</button>
+          <button class="skin-type-btn">Oily Skin</button>
+          <button class="skin-type-btn">Combination</button>
+          <button class="skin-type-btn">Sensitive</button>
+          <button class="skin-type-btn">Acne-Prone</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skincare Routines -->
+    <section class="container">
+      <h2 style="text-align: center; margin-bottom: 40px">
+        Daily Skincare Routines
+      </h2>
+
+      <!-- Morning Routine -->
+      <div class="routine-card">
+        <div class="routine-header">
+          <i class="fas fa-sun"></i> Morning Routine (6 Steps)
+        </div>
+        <div class="routine-steps">
+          <div class="routine-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Cleanser</h4>
+              <p>
+                Use a gentle, pH-balanced cleanser to remove overnight buildup
+                without stripping skin.
+              </p>
+              <div class="product-recommendation">
+                <strong>Our Pick:</strong> CeraVe Hydrating Cleanser ($14)
+                <span
+                  class="rating"
+                  style="color: var(--teal); margin-left: 10px"
+                >
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="routine-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Vitamin C Serum</h4>
+              <p>
+                Apply antioxidant serum to protect against free radicals and
+                brighten skin.
+              </p>
+              <div class="product-recommendation">
+                <strong>Best Splurge:</strong> Skinceuticals C E Ferulic ($166)
+              </div>
+            </div>
+          </div>
+
+          <!-- Steps 3-6 would continue here -->
+        </div>
+      </div>
+
+      <!-- Night Routine -->
+      <div class="routine-card">
+        <div
+          class="routine-header"
+          style="
+            background: linear-gradient(to right, var(--navy), var(--dark));
+          "
+        >
+          <i class="fas fa-moon"></i> Night Routine (7 Steps)
+        </div>
+        <div class="routine-steps">
+          <div class="routine-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Double Cleanse</h4>
+              <p>
+                Start with oil-based cleanser to remove sunscreen/makeup,
+                followed by water-based cleanser.
+              </p>
+              <div class="product-recommendation">
+                <strong>Our Pick:</strong> DHC Deep Cleansing Oil ($28) + La
+                Roche-Posay Toleriane Cleanser ($15)
+              </div>
+            </div>
+          </div>
+
+          <div class="routine-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Exfoliant (2-3x/week)</h4>
+              <p>
+                Use AHAs for dry skin or BHAs for acne-prone skin to promote
+                cell turnover.
+              </p>
+              <div class="product-recommendation">
+                <strong>Best for Sensitive Skin:</strong> Paula's Choice 2% BHA
+                Liquid Exfoliant ($32)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ingredient Glossary -->
+    <section class="container">
+      <div class="ingredient-glossary">
+        <h2 style="text-align: center; margin-bottom: 30px; color: var(--navy)">
+          Skincare Ingredient Glossary
+        </h2>
+
+        <div class="ingredient-item">
+          <div class="ingredient-name">
+            Hyaluronic Acid
+            <span class="ingredient-rating rating-good">Best</span>
+          </div>
+          <p>
+            A humectant that holds 1000x its weight in water, plumping skin and
+            reducing fine lines. Works for all skin types.
+          </p>
+        </div>
+
+        <div class="ingredient-item">
+          <div class="ingredient-name">
+            Niacinamide (Vitamin B3)
+            <span class="ingredient-rating rating-good">Best</span>
+          </div>
+          <p>
+            Reduces inflammation, minimizes pores, and strengthens skin barrier.
+            Ideal for oily/acne-prone skin.
+          </p>
+        </div>
+
+        <div class="ingredient-item">
+          <div class="ingredient-name">
+            Retinol
+            <span class="ingredient-rating rating-average">Caution</span>
+          </div>
+          <p>
+            Gold-standard anti-aging ingredient that boosts collagen. Start with
+            low concentrations (0.25%) to avoid irritation.
+          </p>
+        </div>
+
+        <div class="ingredient-item">
+          <div class="ingredient-name">
+            Alcohol Denat.
+            <span class="ingredient-rating rating-poor">Avoid</span>
+          </div>
+          <p>
+            Drying alcohol that can compromise skin barrier, especially for
+            dry/sensitive types.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skincare Quiz CTA -->
+    <section
+      style="
+        background: var(--teal);
+        padding: 60px 20px;
+        text-align: center;
+        color: white;
+        margin: 50px 0;
+      "
+    >
+      <div class="container">
+        <h2 style="margin-bottom: 20px">Not Sure Where to Start?</h2>
+        <p style="max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem">
+          Take our 2-minute skincare quiz to get personalized product
+          recommendations
+        </p>
+        <button
+          style="
+            background: white;
+            color: var(--teal);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+          "
+        >
+          Take the Skin Quiz
+        </button>
+      </div>
+    </section>
+
+    <script>
+      // Skin Type Filtering
+      const skinTypeBtns = document.querySelectorAll(".skin-type-btn");
+
+      skinTypeBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          skinTypeBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          // In a real implementation, this would filter content
+          console.log(`Showing products for: ${btn.textContent}`);
+        });
+      });
+
+      // Interactive Ingredient Glossary
+      const ingredientItems = document.querySelectorAll(".ingredient-item");
+      ingredientItems.forEach((item) => {
+        item.addEventListener("click", function () {
+          this.querySelector("p").classList.toggle("show");
+        });
+      });
+    </script>
+  </body>
+</html>
